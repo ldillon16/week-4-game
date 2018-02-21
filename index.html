@@ -4,67 +4,135 @@
   <title>Crystal Game</title>
 
    <style type="text/css">
+
     .crystal-image {
       width: 300px;
       height: 300px;
+      margin: 10px;
     }
+
   </style>
+
 </head>
 <body>
-  <!-- We then wrapped our crystal image in an id "#crystals" -->
-  <div id="crystals">
-    <!-- We gave our crystal image the class ".crystal-image" to apply the resize-->
-    <img class="crystal-image" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" alt="crystals">
-  </div> 
 
-<!-- Here we added in a single crystal image -->
-<img src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" alt="crystals">
+  <in>
+  	<button id="start-button">Start</button>
+  	<h1>Number to Guess: <span id="number-to-guess"></span></h1>
+  	<p>Wins: <span id="wins"></span></p>
+  	<p>Losses: <span id="losses"></span><p>
+  	<p>Score: <span id="score"></span></p>
 
-<!-- Here we added a link to the jQuery library -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<!-- crystal image wrapped in id "#crystals" -->
+  	<div id="crystals"></div>
 
-<script type="text/javascript">
+  	<!-- <p>"Your total score is: " + counter <span id="total-score-blank"></span></p>
+  	<p><span id="total-score"></span></p> -->
+  	
+  	<!-- jQuery library -->
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	
+  	<script type="text/javascript">
+  	
+  	$(document).ready(function() {	
+  	
+  	$("#start-button").on("click", function() {
+  		console.log("start");
+  		startGame();
+  	})
+
+  
+
+  
+  	var targetNumber = null;
+
+  	var wins = 0;
+  	var losses = 0;
+  	
+  	var counter = 0;
+  	
+  	var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+  	var randomValue= function(){
+  	return numberOptions[Math.floor(Math.random()*numberOptions.length)]}
+
+  	console.log("randomValue:",randomValue());
+  	
+  	function startGame() {
+  		targetNumber = Math.floor((Math.random() * 101) + 19);
+  		counter = 0;
+  		console.log(targetNumber + "target Number");
+  	$("#number-to-guess").text(targetNumber);
+  	
+  	for (var i = 0; i < 4; i++) {
+  	
+  		var imageCrystal = $("<img>")
+  			.addClass("crystal-image")
+  			.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg")
+  			.attr("data-crystalvalue", randomValue());
+  	
+  		$("#crystals").append(imageCrystal);
+  	}
+  	}
+  
+  	
+  	$("body").on("click", ".crystal-image", function() {
+  	
+  		var crystalValue = ($(this).attr("data-crystalvalue"));
+  		crystalValue = parseInt(crystalValue);
+  		console.log(crystalValue + "crystal value");
+  		counter += crystalValue;
+  		console.log(counter + "counter");
+  		
+  		$("#score").text(counter);
+  	
+  		// alert("your new score is: " + counter);
+  		console.log(counter);
+
+  		// $("#total-score").data(counter);
+  		if (counter === targetNumber) {
+  	    // If the numbers match we'll celebrate the user's win.
+  	  
+  	    wins++
+  	    $("#wins").text(wins);
+  	      alert("you win");
+  	      startGame();
+  	  }
+  	
+  	  else if (counter >= targetNumber) {
+  		
+  		losses++
+  		$("#losses").text(losses);
+  	  	alert("you lose");
+  	  	startGame();
+  	  	
+  	  }
+ 	});
+
+  	
+  	// Here we created some logic to "check" if the click counter matches the targetNumber.
+  	  // Remember, this click event will be triggered with each click.
+  	  // With each click the counter will increase by 10 and be re-evaluated against target.
+ 
+  	  
+  	})
+  	
 
 
-$(document).ready(function() {
-
-$(".crystal-image").on("click", function() {
-
-	alert("you done gone and clicked my crystal!");
-})
-
-//setting variables
-
-	// var 
-	// var targetNumber = //random number generator
-	// var crystal1 = 
-	// var crystal2 = 
-	// var crystal3 = 
-	// var crystal4 = 
-
-//reset funtion to be initialized when the player wins or loses the game
-
-	// function reset() {
-	// 	var targetNumber = "",
-	// 	var crystal1 = "",
-	// 	var crystal2 = "",
-	// 	var crystal3 = "",
-	// 	var crystal4 = "",
-	// 	 //  may need to do something like this: $("#first-number, #second-number, #operator, #result").empty();
-	// }
+  	
+  // reset funtion to be initialized when the player wins or loses the game
+  	
+  // function reset() {
+  // 	targetNumber();
 
 
+  // 	 }
+  	
+  // 	})
+  	
+  	
 
-
-})
-
-
-
-
-
-
-  // Created a simple "alert" to get our bearings.
-  alert("hi");
-</script>
+  	</script>
+  </in>
 </body>
 </html>
