@@ -26,9 +26,6 @@
   	<!-- crystal image wrapped in id "#crystals" -->
   	<div id="crystals"></div>
 
-  	<!-- <p>"Your total score is: " + counter <span id="total-score-blank"></span></p>
-  	<p><span id="total-score"></span></p> -->
-  	
   	<!-- jQuery library -->
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	
@@ -41,12 +38,10 @@
   		startGame();
   	})
 
-  
-
-  
   	var targetNumber = null;
 
   	var wins = 0;
+  	
   	var losses = 0;
   	
   	var counter = 0;
@@ -66,7 +61,7 @@
   	
   	for (var i = 0; i < 4; i++) {
   	
-  		var imageCrystal = $("<img>")
+  		imageCrystal = $("<img>")
   			.addClass("crystal-image")
   			.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg")
   			.attr("data-crystalvalue", randomValue());
@@ -74,7 +69,6 @@
   		$("#crystals").append(imageCrystal);
   	}
   	}
-  
   	
   	$("body").on("click", ".crystal-image", function() {
   	
@@ -86,12 +80,9 @@
   		
   		$("#score").text(counter);
   	
-  		// alert("your new score is: " + counter);
   		console.log(counter);
 
-  		// $("#total-score").data(counter);
   		if (counter === targetNumber) {
-  	    // If the numbers match we'll celebrate the user's win.
   	  
   	    wins++
   	    $("#wins").text(wins);
@@ -108,28 +99,8 @@
   	  	
   	  }
  	});
-
-  	
-  	// Here we created some logic to "check" if the click counter matches the targetNumber.
-  	  // Remember, this click event will be triggered with each click.
-  	  // With each click the counter will increase by 10 and be re-evaluated against target.
- 
   	  
   	})
-  	
-
-
-  	
-  // reset funtion to be initialized when the player wins or loses the game
-  	
-  // function reset() {
-  // 	targetNumber();
-
-
-  // 	 }
-  	
-  // 	})
-  	
   	
 
   	</script>
