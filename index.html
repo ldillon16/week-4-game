@@ -54,13 +54,6 @@
 
   	console.log("randomValue:",randomValue());
   	
-  	function startGame() {
-  		targetNumber = Math.floor((Math.random() * 101) + 19);
-  		counter = 0;
-  		imageCrystal = null;
-  		console.log(targetNumber + "target Number");
-  	$("#number-to-guess").text(targetNumber);
-  	
   	for (var i = 0; i < 4; i++) {
   	
   		imageCrystal = $("<img>")
@@ -70,6 +63,15 @@
   	
   		$("#crystals").append(imageCrystal);
   	}
+  	
+  	function startGame() {
+  		targetNumber = Math.floor((Math.random() * 101) + 19);
+  		counter = 0;
+  		imageCrystal = null;
+  		console.log(targetNumber + "target Number");
+  	$("#number-to-guess").text(targetNumber);
+  	
+  	
   	}
   	
   	$("body").on("click", ".crystal-image", function() {
