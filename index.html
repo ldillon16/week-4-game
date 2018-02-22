@@ -3,28 +3,23 @@
 <head>
   <title>Crystal Game</title>
 
-   <style type="text/css">
+  <meta charset="UTF-8">
+  <link src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    .crystal-image {
-      width: 300px;
-      height: 300px;
-      margin: 10px;
-    }
-
-  </style>
 
 </head>
 <body>
 
   <in>
-  	<button id="start-button">Start</button>
+  	<button id="start-button" type="button" class="btn-lrg">Start</button>
   	<h1>Number to Guess: <span id="number-to-guess"></span></h1>
   	<p>Wins: <span id="wins"></span></p>
   	<p>Losses: <span id="losses"></span><p>
   	<p>Score: <span id="score"></span></p>
 
-  	<!-- crystal image wrapped in id "#crystals" -->
-  	<div id="crystals"></div>
+  	<div id="crystals" class="container"></div>
 
   	<!-- jQuery library -->
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -45,8 +40,14 @@
   	var losses = 0;
   	
   	var counter = 0;
+
+  	var imageCrystal = 0;
+
+  	var i = 0;
   	
   	var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+
 
   	var randomValue= function(){
   	return numberOptions[Math.floor(Math.random()*numberOptions.length)]}
@@ -56,6 +57,7 @@
   	function startGame() {
   		targetNumber = Math.floor((Math.random() * 101) + 19);
   		counter = 0;
+  		imageCrystal = null;
   		console.log(targetNumber + "target Number");
   	$("#number-to-guess").text(targetNumber);
   	
