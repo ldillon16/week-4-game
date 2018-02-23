@@ -4,7 +4,7 @@
   <title>Crystal Game</title>
 
   <meta charset="UTF-8">
-  <link src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
@@ -12,12 +12,42 @@
 </head>
 <body>
 
-  <in>
-  	<button id="start-button" type="button" class="btn-lrg">Start</button>
-  	<h1>Number to Guess: <span id="number-to-guess"></span></h1>
-  	<p>Wins: <span id="wins"></span></p>
-  	<p>Losses: <span id="losses"></span><p>
-  	<p>Score: <span id="score"></span></p>
+  <div>
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-12">
+  				<button id="start-button" type="button" class="btn">Start</button>
+  			</div>
+  		</div>
+  	</div>
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-12">
+  				<h1>Crystal Collector!</h1>
+  			</div>
+  		</div>
+  	</div>
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-12">
+  				<h2>Number to Guess: <span id="number-to-guess"></span></h2>
+  			</div>
+  		</div>
+
+  	</div>
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-4">
+  				<p>Wins: <span id="wins"></span></p>
+  			</div>
+  			<div class="col-md-4">
+  				<p>Losses: <span id="losses"></span></p>
+  			</div>
+  			<div class="col-md-4">
+  				<p>Score: <span id="score"></span></p>
+  			</div>
+  		</div>
+  	</div>
 
   	<div id="crystals" class="container"></div>
 
@@ -31,6 +61,7 @@
   	$("#start-button").on("click", function() {
   		console.log("start");
   		startGame();
+  		var losses = 0;
   	})
 
   	var targetNumber = null;
@@ -48,17 +79,18 @@
   	var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 
-
   	var randomValue= function(){
   	return numberOptions[Math.floor(Math.random()*numberOptions.length)]}
 
   	console.log("randomValue:",randomValue());
-  	
+
+  	$("crystals").empty();
+
   	for (var i = 0; i < 4; i++) {
   	
   		imageCrystal = $("<img>")
   			.addClass("crystal-image")
-  			.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg")
+  			.attr("src", "http://via.placeholder.com/350x150")
   			.attr("data-crystalvalue", randomValue());
   	
   		$("#crystals").append(imageCrystal);
@@ -67,11 +99,11 @@
   	function startGame() {
   		targetNumber = Math.floor((Math.random() * 101) + 19);
   		counter = 0;
-  		imageCrystal = null;
+  		
   		console.log(targetNumber + "target Number");
   	$("#number-to-guess").text(targetNumber);
   	
-  	
+
   	}
   	
   	$("body").on("click", ".crystal-image", function() {
@@ -108,6 +140,6 @@
   	
 
   	</script>
-  </in>
+  </div>
 </body>
 </html>
