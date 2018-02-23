@@ -5,32 +5,26 @@
 
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
 </head>
 <body>
 
   <div>
+ 
   	<div class="container">
   		<div class="row">
   			<div class="col-md-12">
-  				<button id="start-button" type="button" class="btn">Start</button>
+  				<h1>CRYSTAL  COLLECTOR!</h1>
   			</div>
   		</div>
   	</div>
+
   	<div class="container">
   		<div class="row">
   			<div class="col-md-12">
-  				<h1>Crystal Collector!</h1>
-  			</div>
-  		</div>
-  	</div>
-  	<div class="container">
-  		<div class="row">
-  			<div class="col-md-12">
-  				<h2>Number to Guess: <span id="number-to-guess"></span></h2>
+  				<h2>Target Number: <span id="number-to-guess"></span></h2>
   			</div>
   		</div>
 
@@ -44,12 +38,16 @@
   				<p>Losses: <span id="losses"></span></p>
   			</div>
   			<div class="col-md-4">
-  				<p>Score: <span id="score"></span></p>
+  				<p>Score so far: <span id="score"></span></p>
   			</div>
   		</div>
   	</div>
 
-  	<div id="crystals" class="container"></div>
+  	<div class="container">
+  		<div class="row">
+  			<div id="crystals" class="col-md-12"></div>
+  		</div>
+  	</div>
 
   	<!-- jQuery library -->
   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -57,14 +55,8 @@
   	<script type="text/javascript">
   	
   	$(document).ready(function() {	
-  	
-  	$("#start-button").on("click", function() {
-  		console.log("start");
-  		startGame();
-  		var losses = 0;
-  	})
 
-  	var targetNumber = null;
+  	  	var targetNumber = null;
 
   	var wins = 0;
   	
@@ -85,16 +77,6 @@
   	console.log("randomValue:",randomValue());
 
   	$("crystals").empty();
-
-  	for (var i = 0; i < 4; i++) {
-  	
-  		imageCrystal = $("<img>")
-  			.addClass("crystal-image")
-  			.attr("src", "http://via.placeholder.com/350x150")
-  			.attr("data-crystalvalue", randomValue());
-  	
-  		$("#crystals").append(imageCrystal);
-  	}
   	
   	function startGame() {
   		targetNumber = Math.floor((Math.random() * 101) + 19);
@@ -102,9 +84,20 @@
   		
   		console.log(targetNumber + "target Number");
   	$("#number-to-guess").text(targetNumber);
-  	
 
+  }
+
+  	for (var i = 0; i < 4; i++) {
+  	
+  		imageCrystal = $("<img>")
+  			.addClass("crystal-image")
+  			.attr("src", "http://naturalchakrahealing.com/images/rainbowquartzcrystals.png")
+  			.attr("data-crystalvalue", randomValue());
+  	
+  		$("#crystals").append(imageCrystal);  	
   	}
+  	
+  	startGame();
   	
   	$("body").on("click", ".crystal-image", function() {
   	
@@ -122,7 +115,7 @@
   	  
   	    wins++
   	    $("#wins").text(wins);
-  	      alert("you win");
+  	      alert("Dag nabbit you done won this puppy!");
   	      startGame();
   	  }
   	
@@ -130,15 +123,15 @@
   		
   		losses++
   		$("#losses").text(losses);
-  	  	alert("you lose");
+  	  	alert("Today ain't your day pardner, you lose");
   	  	startGame();
   	  	
   	  }
+ 		counter: 0;
  	});
   	  
   	})
   	
-
   	</script>
   </div>
 </body>

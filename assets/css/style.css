@@ -1,16 +1,17 @@
-#start-button {
-	margin-top: 30px;
-	margin-left: 30px;
-	width: 200px;
-
-}
 
 .container {
 
 }
 
+img {
+
+	width: 20%;
+	margin: 2%;
+
+}
+
 body {
-	background: skyblue;
+	 background: ghostwhite;
 }
 
 .score {
@@ -18,25 +19,65 @@ body {
 }
 
 h1 {
-	font-family: Helvetica, sans-serif;
+	font-family: 'Raleway', sans-serif;
+	color: ghostwhite;
+	text-shadow: 2px 2px 4px #000000;
+	font-size: 300%;
+	letter-spacing: 3px;
+	background: indigo;
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	margin-top: 60px;
+	border: ridge;
+	border-color: teal;
+	border-width: 8px;
+	border-radius: 2px;
+	margin-bottom: 30px;
+	box-shadow: 10px 10px 5px grey;
 }
 
 h2 {
-	font-family: Helvetica, sans-serif;
+	font-family: 'Raleway', sans-serif;
+	color: ghostwhite;
+	text-shadow: 2px 2px 4px #000000;
+	background: indigo;
+	text-align: center;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	border: ridge;
+	border-width: 8px;
+	border-color: teal;
+	border-radius: 2px;
+	margin-bottom: 30px;
+	box-shadow: 10px 10px 5px grey;
 }
 
 p {
-	font-family: Helvetica, sans-serif;
-	border: solid;
-	padding: 10px;
+	font-family: 'Raleway', sans-serif;
+	color: ghostwhite;
+	text-shadow: 2px 2px 4px #000000;
+	font-size: 120%;
+	border: ridge;
+	padding-left: 20px;
+	padding-right: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-width: 8px;
+	border-color: teal;
+	border-radius: 2px;
+	background: indigo;
+	font-size: 120%;
+	box-shadow: 10px 10px 5px grey;
 
 }
-
-}
-
 
 .crystals {
-      width: 100px;
-      height: 100px;
-      margin: 10px;
+	margin-top: 10px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    box-shadow: 10px;
+
+    
     }
